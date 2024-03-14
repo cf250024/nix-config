@@ -10,6 +10,12 @@
       ./hardware-configuration.nix
     ];
 
+  #make ready for nix flakes
+  nix.package = pkgs.nixFlakes;
+  nix.extraOptions = ''
+    experimental-features = nix-command flakes
+  '';
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -147,7 +153,7 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.11"; # Did you read the comment?
   virtualisation.docker.enable = true;
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  
 
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
