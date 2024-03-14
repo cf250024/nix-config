@@ -18,6 +18,17 @@
     };
     lib = nixpkgs.lib;
   in {
+    homeManagerConfigurations = {
+      inherit system pkgs;
+      username = "nixos";
+      homeDirectory = "/home/nixos";
+      configuration = {
+        import = [
+          ./users/nixos/home.nix
+        ];
+      };
+    };
+
     nixosConfigurations = {
       nixos = lib.nixosSystem {
         inherit system;
@@ -26,6 +37,5 @@
         ];
       };
     };
-
   };
 }
