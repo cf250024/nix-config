@@ -19,13 +19,21 @@
     lib = nixpkgs.lib;
   in {
     homeManagerConfigurations = {
-      inherit system pkgs;
-      username = "nixos";
-      homeDirectory = "/home/nixos";
-      configuration = {
-        import = [
-          ./users/nixos/home.nix
-        ];
+      nixos = home-manager.lib.homeManagerConfiguration {
+        inherit system pkgs;
+        homeManagerConfiguration = {
+          pkgs = nixpkgs.legacyPackages.${system};
+          modules = [
+            ./home.nix
+            {
+              home = {
+                username = "nixos";
+                homeDirectory = "/home/nixos";
+                stateVersion = "22.05";
+              };
+            }
+          ];
+        };
       };
     };
 
