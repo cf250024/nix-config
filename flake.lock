@@ -1,5 +1,23 @@
 {
   "nodes": {
+    "blender-bin": {
+      "inputs": {
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "dir": "blender",
+        "lastModified": 1708598991,
+        "narHash": "sha256-/Tb6P/Yq6jlgtD+VHS261VWJDC1YiYYnEzIz6RL24ik=",
+        "owner": "edolstra",
+        "repo": "nix-warez",
+        "rev": "f47d6549654fbd4a186faa116839728f2c31bf09",
+        "type": "github"
+      },
+      "original": {
+        "id": "blender-bin",
+        "type": "indirect"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -22,6 +40,21 @@
     },
     "nixpkgs": {
       "locked": {
+        "lastModified": 1695559356,
+        "narHash": "sha256-kXZ1pUoImD9OEbPCwpTz4tHsNTr4CIyIfXb3ocuR8sI=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "261abe8a44a7e8392598d038d2e01f7b33cf26d0",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "ref": "nixos-23.05",
+        "type": "indirect"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
         "lastModified": 1710272261,
         "narHash": "sha256-g0bDwXFmTE7uGDOs9HcJsfLFhH7fOsASbAuOzDC+fhQ=",
         "owner": "nixos",
@@ -38,8 +71,9 @@
     },
     "root": {
       "inputs": {
+        "blender-bin": "blender-bin",
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs_2"
       }
     }
   },

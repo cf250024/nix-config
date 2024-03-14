@@ -21,19 +21,19 @@
   in {
     homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
       pkgs = nixpkgs.legacyPackages.${system};
-      configuration = {
-        imports = [
-          ./home.nix
-        ];
-        nixpkgs.overlays = [blender-bin.overlays.default];
-      };
-
-      inherit system username;
-      homeDirectory = "/home/${username}";
-      # Update the state version as needed.
-      stateVersion = "22.05";
+      modules = [
+        ./users/nixos/home.nix
+        {
+          nixpkgs.overlays = [blender-bin.overlays.default];
+          home = {
+            inherit username;
+            homeDirectory = "/home/${username}";
+            # Update the state version as needed.
+            # stateVersion = "22.05";
+          };
+        }
+      ];
     };
-
 
     nixosConfigurations = {
       nixos = lib.nixosSystem {

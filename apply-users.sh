@@ -1,4 +1,5 @@
 #!/bin/sh
 pushd ~/.dotfiles
-home-manager switch --flake ./users/nixos/#nixos
+nix build .#homeConfigurations.nixos.activationPackage
+./result/activate
 popd
