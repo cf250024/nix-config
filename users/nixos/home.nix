@@ -39,6 +39,8 @@
     git
     git-crypt
     gnupg
+    kind
+    k9s
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

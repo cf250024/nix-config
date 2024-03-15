@@ -95,6 +95,14 @@
     ];
   };
 
+  users.users.cf250024 = {
+    isNormalUser  = true;
+    home  = "/home/cf250024";
+    description  = "This is new user cf250024";
+    extraGroups  = [ "wheel" "networkmanager" "docker"];
+    openssh.authorizedKeys.keys  = [ "ssh-dss AAAAB3Nza... alice@foobar" ];
+  };
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -106,8 +114,6 @@
     git
     python3
     vscode
-    kind
-    k9s
     lf
     htop
     ueberzug
