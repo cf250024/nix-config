@@ -29,7 +29,7 @@
             inherit username;
             homeDirectory = "/home/${username}";
             # Update the state version as needed.
-            # stateVersion = "22.05";
+            stateVersion = "23.11";
           };
         }
       ];
